@@ -293,6 +293,8 @@ void RGB64x32MatrixPanel_I2S_DMA::configureDMA(int r1_pin, int  g1_pin, int  b1_
     if ( sizeof(rowColorDepthStruct) > DMA_MAX ) {
         num_dma_payload_color_depths = 1;
     }
+	
+	num_dma_payload_color_depths = PIXEL_COLOR_DEPTH_BITS; // regression test hack
 
     // Fill DMA linked lists for both frames (as in, halves of the HUB75 panel) and if double buffering is enabled, link it up for both buffers.
     for(int row = 0; row < ROWS_PER_FRAME; row++) {
