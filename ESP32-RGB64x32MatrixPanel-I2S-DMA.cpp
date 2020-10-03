@@ -315,9 +315,9 @@ void RGB64x32MatrixPanel_I2S_DMA::configureDMA(int r1_pin, int  g1_pin, int  b1_
           previous_dmadesc_b = &dmadesc_b[current_dmadescriptor_offset]; }
 
         current_dmadescriptor_offset++;
-
+/*
         // If the number of pixels per row is to great for the size of a DMA payload, so we need to split what we were going to send above.
-        if ( sizeof(rowColorDepthStruct) > DMA_MAX ) 
+        if ( num_dma_payload_color_depths != 1 ) 
         {
                    
           #if SERIAL_DEBUG     
@@ -338,8 +338,8 @@ void RGB64x32MatrixPanel_I2S_DMA::configureDMA(int r1_pin, int  g1_pin, int  b1_
             current_dmadescriptor_offset++;     
 
           } // additional linked list items           
-        }  // row depth struct
-
+        }  // row depth size check
+*/
 
         for(int i=lsbMsbTransitionBit + 1; i<PIXEL_COLOR_DEPTH_BITS; i++) 
         {
